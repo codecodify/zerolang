@@ -1,0 +1,218 @@
+{
+  "theme.ErrorPageContent.title": {
+    "message": "页面崩溃了",
+    "description": "The title of the fallback page when the page crashed"
+  },
+  "theme.NotFound.title": {
+    "message": "找不到页面",
+    "description": "The title of the 404 page"
+  },
+  "theme.NotFound.p1": {
+    "message": "我们找不到您要访问的页面。",
+    "description": "The first paragraph of the 404 page"
+  },
+  "theme.NotFound.p2": {
+    "message": "请检查 URL 是否正确，或返回首页。",
+    "description": "The second paragraph of the 404 page"
+  },
+  "theme.blog.archive.title": {
+    "message": "归档",
+    "description": "The page title of the blog archive"
+  },
+  "theme.blog.archive.description": {
+    "message": "所有文章",
+    "description": "The page description of the blog archive"
+  },
+  "theme.blog.paginator.navAriaLabel": {
+    "message": "博客文章分页",
+    "description": "The ARIA label for the blog pagination"
+  },
+  "theme.blog.paginator.newerEntries": {
+    "message": "较新的文章",
+    "description": "The label used to navigate to the newer blog posts page"
+  },
+  "theme.blog.paginator.olderEntries": {
+    "message": "较旧的文章",
+    "description": "The label used to navigate to the older blog posts page"
+  },
+  "theme.blog.post.paginator.navAriaLabel": {
+    "message": "博客文章分页",
+    "description": "The ARIA label for the blog posts pagination"
+  },
+  "theme.blog.post.paginator.newerPost": {
+    "message": "较新的文章",
+    "description": "The blog post button label to navigate to the newer/previous post"
+  },
+  "theme.blog.post.paginator.olderPost": {
+    "message": "较旧的文章",
+    "description": "The blog post button label to navigate to the older/next post"
+  },
+  "theme.blog.post.plurals": {
+    "message": "{count} 分钟阅读",
+    "description": "Pluralized label for \"{count} min read\""
+  },
+  "theme.blog.tagTitle": {
+    "message": "标签 \"{nPosts}\" 下的 {nPosts} 篇文章",
+    "description": "The title of the page for a blog tag"
+  },
+  "theme.tags.tagsPageLink": {
+    "message": "查看所有标签",
+    "description": "The label of the link targeting the tag list page"
+  },
+  "theme.colorToggle.ariaLabel": {
+    "message": "切换明暗模式",
+    "description": "The ARIA label for the navbar color mode toggle"
+  },
+  "theme.docs.DocCard.categoryDescription": {
+    "message": "{count} 篇文章",
+    "description": "The description of the category"
+  },
+  "theme.docs.paginator.navAriaLabel": {
+    "message": "文档分页",
+    "description": "The ARIA label for the docs pagination"
+  },
+  "theme.docs.paginator.previous": {
+    "message": "上一页",
+    "description": "The label used to navigate to the previous doc"
+  },
+  "theme.docs.paginator.next": {
+    "message": "下一页",
+    "description": "The label used to navigate to the next doc"
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged": {
+    "message": "{count} 篇文章",
+    "description": "Pluralized label for \"{count} docs tagged\""
+  },
+  "theme.docs.tagDocListPageTitle.nDocsTagged_plural": {
+    "message": "{count} 篇文章",
+    "description": "Pluralized label for \"{count} docs tagged\""
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "版本: {versionLabel}",
+    "description": "The label used for the version badge"
+  },
+  "theme.common.editThisPage": {
+    "message": "编辑本页",
+    "description": "The link label to edit the current page"
+  },
+  "theme.common.headingLinkTitle": {
+    "message": "直接链接到标题",
+    "description": "Title for link to heading"
+  },
+  "theme.lastUpdated.atDate": {
+    "message": "于 {date}",
+    "description": "The words used to describe on which date a page has been last updated"
+  },
+  "theme.lastUpdated.byUser": {
+    "message": "由 {user}",
+    "description": "The words used to describe by who the page has been last updated"
+  },
+  "theme.lastUpdated.lastUpdatedAtBy": {
+    "message": "最后更新于 {atDate}，由 {byUser} 编辑",
+    "description": "The sentence used to display when a page has been last updated, and by who"
+  },
+  "theme.navbar.mobileSidebarPrimaryMenu.label": {
+    "message": "主菜单",
+    "description": "The mobile sidebar primary menu label"
+  },
+  "theme.navbar.mobileSidebarSecondaryMenu.label": {
+    "message": "次菜单",
+    "description": "The mobile sidebar secondary menu label"
+  },
+  "theme.tags.tagsListLabel": {
+    "message": "标签：",
+    "description": "The label alongside a tag list"
+  },
+  "theme.tags.tagsPageTitle": {
+    "message": "标签",
+    "description": "The title of the tag list page"
+  },
+  "theme.SearchBar.label": {
+    "message": "搜索",
+    "description": "The ARIA label and placeholder for search button"
+  },
+  "theme.SearchModal.errorScreen.helpText": {
+    "message": "请检查您的网络连接。",
+    "description": "The error screen text"
+  },
+  "theme.SearchModal.errorScreen.titleText": {
+    "message": "无法获取搜索结果",
+    "description": "The error screen title"
+  },
+  "theme.SearchModal.footer.closeKeyAriaLabel": {
+    "message": "Esc 键",
+    "description": "The ARIA label for close key"
+  },
+  "theme.SearchModal.footer.closeText": {
+    "message": "关闭",
+    "description": "The label for close button"
+  },
+  "theme.SearchModal.footer.navigateDownKeyAriaLabel": {
+    "message": "向下箭头",
+    "description": "The ARIA label for down arrow"
+  },
+  "theme.SearchModal.footer.navigateText": {
+    "message": "导航",
+    "description": "The label for navigate"
+  },
+  "theme.SearchModal.footer.navigateUpKeyAriaLabel": {
+    "message": "向上箭头",
+    "description": "The ARIA label for up arrow"
+  },
+  "theme.SearchModal.footer.searchByText": {
+    "message": "搜索由",
+    "description": "The label for search by"
+  },
+  "theme.SearchModal.footer.selectKeyAriaLabel": {
+    "message": "Enter 键",
+    "description": "The ARIA label for enter key"
+  },
+  "theme.SearchModal.footer.selectText": {
+    "message": "选择",
+    "description": "The label for select"
+  },
+  "theme.SearchModal.noResultsScreen.noResultsText": {
+    "message": "未找到 \"{query}\" 的结果",
+    "description": "The no results screen text"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsLinkText": {
+    "message": "让我们知道",
+    "description": "The link text for reporting missing results"
+  },
+  "theme.SearchModal.noResultsScreen.reportMissingResultsText": {
+    "message": "您认为应该有搜索结果？",
+    "description": "The no results screen text"
+  },
+  "theme.SearchModal.noResultsScreen.suggestedQueryText": {
+    "message": "试试搜索",
+    "description": "The no results screen text"
+  },
+  "theme.SearchModal.placeholder": {
+    "message": "搜索文档",
+    "description": "The placeholder for search input"
+  },
+  "theme.SearchModal.searchBox.resetButtonTitle": {
+    "message": "清除查询",
+    "description": "The label for reset button"
+  },
+  "theme.SearchModal.startScreen.favoriteSearchesTitle": {
+    "message": "收藏",
+    "description": "The title for favorite searches"
+  },
+  "theme.SearchModal.startScreen.recentSearchesTitle": {
+    "message": "最近搜索",
+    "description": "The title for recent searches"
+  },
+  "theme.SearchModal.startScreen.removeFavoriteSearchButtonTitle": {
+    "message": "从收藏中删除",
+    "description": "The label for removing a favorite search"
+  },
+  "theme.SearchModal.startScreen.removeRecentSearchButtonTitle": {
+    "message": "从历史中删除",
+    "description": "The label for removing a recent search"
+  },
+  "theme.SearchModal.startScreen.saveRecentSearchButtonTitle": {
+    "message": "收藏此搜索",
+    "description": "The label for saving a recent search"
+  }
+}

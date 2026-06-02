@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "Zerolang",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Zerolang Logo",
+    "description": "The alt text for navbar logo"
+  },
+  "item.label.Docs": {
+    "message": "文档",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Blog": {
+    "message": "博客",
+    "description": "Navbar item with label Blog"
+  },
+  "item.label.Official": {
+    "message": "官网",
+    "description": "Navbar item with label Official"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}
