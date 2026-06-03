@@ -49,8 +49,8 @@ website/
 | Frontend Framework | React 18 + TypeScript |
 | Content Format | Markdown / MDX |
 | Search | Algolia DocSearch |
-| Deployment | GitHub Pages / Vercel |
-| CI/CD | GitHub Actions |
+| Deployment | **Vercel** (primary) / GitHub Pages (backup) |
+| CI/CD | Vercel Auto-Deploy / GitHub Actions |
 
 ## Multilingual Setup
 
@@ -91,17 +91,21 @@ npm run serve
 
 ## Deployment
 
-### GitHub Pages
-
-GitHub Actions workflow is configured in `.github/workflows/deploy.yml`. Push to `master` triggers automatic build and deployment.
-
-### Vercel
+### Vercel (Recommended)
 
 1. Connect your GitHub repository to [Vercel](https://vercel.com)
-2. Framework Preset: Docusaurus
+2. Framework Preset: **Other**
 3. Root Directory: `website`
 4. Build Command: `npm run build`
 5. Output Directory: `build`
+6. Add custom domain `zerolang.app` in Vercel Dashboard → Domains
+7. Add the DNS record shown by Vercel at your domain registrar
+
+Push to `master` triggers automatic build and deploy on Vercel.
+
+### GitHub Pages (Backup)
+
+GitHub Actions workflow is configured in `.github/workflows/deploy.yml`. Enable in repository Settings → Pages → Source: GitHub Actions.
 
 ## Contributing
 
