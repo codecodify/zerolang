@@ -49,8 +49,8 @@ website/
 | Frontend Framework | React 18 + TypeScript |
 | Content Format | Markdown / MDX |
 | Search | Algolia DocSearch |
-| Deployment | GitHub Pages / Vercel |
-| CI/CD | GitHub Actions |
+| Deployment | **Cloudflare Pages** (primary) / Vercel (backup) / GitHub Pages (backup) |
+| CI/CD | Cloudflare Pages Auto-Deploy / Vercel Auto-Deploy / GitHub Actions |
 
 ## Multilingual Setup
 
@@ -91,17 +91,27 @@ npm run serve
 
 ## Deployment
 
-### GitHub Pages
+### Cloudflare Pages (Recommended)
 
-GitHub Actions workflow is configured in `.github/workflows/deploy.yml`. Push to `master` triggers automatic build and deployment.
+1. Connect your GitHub repository to [Cloudflare Pages](https://dash.cloudflare.com)
+2. Build Command: `cd website && npm install && npm run build`
+3. Build Output Directory: `website/build`
+4. Add custom domain `zerolang.app` in Pages Dashboard → Custom domains
+5. Cloudflare auto-configures DNS and HTTPS (if domain managed by Cloudflare)
 
-### Vercel
+Push to `master` triggers automatic build and deploy on Cloudflare Pages.
+
+### Vercel (Backup)
 
 1. Connect your GitHub repository to [Vercel](https://vercel.com)
-2. Framework Preset: Docusaurus
+2. Framework Preset: **Other**
 3. Root Directory: `website`
 4. Build Command: `npm run build`
 5. Output Directory: `build`
+
+### GitHub Pages (Backup)
+
+GitHub Actions workflow is configured in `.github/workflows/deploy.yml`. Enable in repository Settings → Pages → Source: GitHub Actions.
 
 ## Contributing
 
