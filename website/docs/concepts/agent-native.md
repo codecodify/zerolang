@@ -120,7 +120,7 @@ The ProgramGraph contains nodes (declarations, expressions, types), edges (calls
 ```sh
 zero graph patch hello.0 \
   --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"'
+  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 Graph edits are checked by the compiler before being applied. The agent cannot introduce syntax errors or break semantic constraints without the compiler catching it.
@@ -133,7 +133,8 @@ Zerolang ships `zero skills` — language rules, diagnostics, build guides, and 
 
 ```sh
 zero skills get language
-zero skills get zero --full
+zero skills get diagnostics
+zero skills get stdlib
 ```
 
 The skills are always in sync with the installed compiler version. An agent using `zero skills get language` will always get the correct rules for the binary it is calling.

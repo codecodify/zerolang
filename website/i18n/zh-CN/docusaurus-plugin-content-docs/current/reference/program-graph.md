@@ -120,7 +120,7 @@ zero graph import --out hello.program-graph hello.0
 检查 ProgramGraph 产物是否格式正确：
 
 ```sh
-zero graph validate --json hello.program-graph
+zero graph validate .zero/out/hello.program-graph
 ```
 
 ### view
@@ -128,7 +128,7 @@ zero graph validate --json hello.program-graph
 从图渲染规范源文本：
 
 ```sh
-zero graph view --json hello.0
+zero graph view examples/hello.0
 zero graph view --out hello.view.0 hello.program-graph
 ```
 
@@ -196,8 +196,8 @@ zero graph patch hello.0 \
 通过导入/导出验证图稳定性：
 
 ```sh
-zero graph roundtrip --json hello.0
-zero graph roundtrip --json hello.program-graph
+zero graph roundtrip examples/hello.0
+zero graph roundtrip .zero/out/hello.program-graph
 ```
 
 ## 图补丁操作
@@ -297,13 +297,13 @@ Agent 可以：
 | `import` | `moduleIdentity`、`graphHash`、`saved.path` |
 | `validate` | `moduleIdentity`、`graphHash`、`counts`、`validation` |
 | `view` | `moduleIdentity`、`graphHash`、`source` |
-| `source-map` | 节点 ID → 源范围、符号/类型/效果 ID |
-| `reconcile` | 身份决策、模糊匹配诊断 |
-| `check` | `lowering: "direct-program-graph"`、目标就绪性、安全事实 |
-| `size` | 大小分解、保留原因、优化提示 |
-| `build` | 产物路径、大小、安全事实、增量失效 |
-| `patch` | 每操作结果、更改的图哈希、保存路径 |
-| `roundtrip` | `semanticStable`、原始/往返图哈希 |
+| `source-map` | 节点 ID → 源范围、节点哈希、符号/类型/效果 ID、文件哈希事实 |
+| `reconcile` | 身份决策、模糊匹配诊断、简单图补丁文本 |
+| `check` | `moduleIdentity`、`graphHash`、`check.lowering: "direct-program-graph"`、目标就绪性、安全事实、图映射诊断 |
+| `size` | `graph` 身份、`profileSemantics`、`profileCatalog`、`profileBudget`、`safetyFacts`、`backendProfile`、`backendComparison`、大小分解、`retentionReasons`、`optimizationHints` |
+| `build` | `graph` 身份、选定 `emit` 类型、目标、产物路径/大小、安全事实、编译器缓存事实、增量失效 |
+| `patch` | 每操作结果、更改的图哈希、保存源代码/产物路径 |
+| `roundtrip` | `semanticStable`、降级模式、原始/往返图哈希、原始计数、规范化语义计数、可选 ProgramGraph 输出 |
 
 ## 延伸阅读
 

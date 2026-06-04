@@ -17,7 +17,7 @@ pub fn main(world: World) -> Void raises {
 运行：
 
 ```bash
-zero run hello.0
+zero run examples/hello.0
 ```
 
 输出：
@@ -35,7 +35,7 @@ zero check hello.0
 ## 查看程序图
 
 ```bash
-zero graph --json hello.0
+zero graph dump hello.0
 ```
 
 输出结构化的 ProgramGraph 信息，包含节点、边、类型、副作用等语义事实。
@@ -43,7 +43,7 @@ zero graph --json hello.0
 ## 构建可执行文件
 
 ```bash
-zero build --emit exe --target linux-musl-x64 hello.0 --out ./hello
+zero build --emit exe --target linux-musl-x64 hello.0 --out .zero/out/hello
 ```
 
 ## 获取 Agent 指引
@@ -52,8 +52,11 @@ zero build --emit exe --target linux-musl-x64 hello.0 --out ./hello
 # 列出所有可用 Skill
 zero skills list
 
-# 获取完整语言指南
-zero skills get zero --full
+# 获取语言规则
+zero skills get language
+
+# 获取诊断参考
+zero skills get diagnostics
 ```
 
 ## 下一步

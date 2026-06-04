@@ -120,7 +120,7 @@ zero graph import --out hello.program-graph hello.0
 Check that a ProgramGraph artifact is well-formed:
 
 ```sh
-zero graph validate --json hello.program-graph
+zero graph validate .zero/out/hello.program-graph
 ```
 
 ### view
@@ -128,7 +128,7 @@ zero graph validate --json hello.program-graph
 Render canonical source text from a graph:
 
 ```sh
-zero graph view --json hello.0
+zero graph view examples/hello.0
 zero graph view --out hello.view.0 hello.program-graph
 ```
 
@@ -196,8 +196,8 @@ zero graph patch hello.0 \
 Verify graph stability through import/export:
 
 ```sh
-zero graph roundtrip --json hello.0
-zero graph roundtrip --json hello.program-graph
+zero graph roundtrip examples/hello.0
+zero graph roundtrip .zero/out/hello.program-graph
 ```
 
 ## Graph Patch Operations
@@ -209,7 +209,7 @@ zero graph roundtrip --json hello.program-graph
 Update a scalar field on an existing node:
 
 ```
-set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"
+set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"
 ```
 
 Editable fields: `name`, `type`, `value`, `public`, `mutable`, `static`, `fallible`, `exportC`.
@@ -299,7 +299,7 @@ All `zero graph` commands accept `--json` for structured output. Key fields:
 | `view` | `moduleIdentity`, `graphHash`, `source`, optional output path |
 | `source-map` | Node IDs → source ranges, node hashes, symbol/type/effect IDs, file hash facts |
 | `reconcile` | Identity decisions, ambiguous-match diagnostics, simple graph patch text |
-| `check` | `moduleIdentity`, `graphHash`, `lowering: "direct-program-graph"`, target readiness, safety facts, graph-mapped diagnostics |
+| `check` | `moduleIdentity`, `graphHash`, `check.lowering: "direct-program-graph"`, target readiness, safety facts, graph-mapped diagnostics |
 | `size` | `graph` identity, `profileSemantics`, `profileCatalog`, `profileBudget`, `safetyFacts`, `backendProfile`, `backendComparison`, `sizeBreakdown`, `retentionReasons`, `optimizationHints` |
 | `build` | `graph` identity, selected `emit` kind, target, artifact path/size, safety facts, compiler cache facts, incremental invalidation |
 | `patch` | Per-operation results, changed graph hash, saved source/artifact path |

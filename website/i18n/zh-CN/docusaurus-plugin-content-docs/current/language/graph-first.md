@@ -20,7 +20,7 @@ Agent 需要：
 Agent 应该能从符号、诊断信息、调用、capability、模块或节点 ID 出发，收集相关的语义切片。
 
 ```bash
-zero graph --json examples/hello.0
+zero graph dump examples/hello.0
 ```
 
 示例输出：
@@ -29,13 +29,14 @@ zero graph --json examples/hello.0
 zero-graph v1
 origin source-text
 module "hello"
-hash "graph:b8a019041020df03"
+hash "graph:a7f7e6899a73f3b4"
 
-node #ea5ea1ca Function name:"main" type:"Void" public:true fallible:true
-node #f9ce8b3e Param name:"world" type:"World"
-node #421a4d4b MethodCall name:"write" type:"Void"
-node #610c78bf Literal type:"String" value:"hello from zero\n"
-edge #421a4d4b arg #610c78bf order:0
+node #decl_ad8d9028 Function name:"main" type:"Void" public:true fallible:true
+node #param_4610ae76 Param name:"world" type:"World"
+node #expr_c403020c MethodCall name:"write" type:"Void"
+node #expr_653eeb6e Literal type:"String" value:"hello from zero\n"
+edge #decl_ad8d9028 body #block_29d1811d
+edge #expr_c403020c arg #expr_653eeb6e order:0
 ```
 
 ## 精确编辑
@@ -44,8 +45,8 @@ edge #421a4d4b arg #610c78bf order:0
 
 ```bash
 zero graph patch examples/hello.0 \
-  --expect-graph-hash graph:b8a019041020df03 \
-  --op 'set node="#610c78bf" field="value" expect="hello from zero\n" value="hello graph\n"'
+  --expect-graph-hash graph:a7f7e6899a73f3b4 \
+  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello graph\n"'
 ```
 
 ## 验证重构

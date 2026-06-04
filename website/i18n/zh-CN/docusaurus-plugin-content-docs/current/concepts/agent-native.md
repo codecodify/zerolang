@@ -120,7 +120,7 @@ ProgramGraph 包含节点（声明、表达式、类型）、边（调用、导�
 ```sh
 zero graph patch hello.0 \
   --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"'
+  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 图编辑在应用前由编译器检查。Agent 无法在编译器不捕获的情况下引入语法错误或破坏语义约束。
@@ -133,7 +133,8 @@ Zerolang 内置 `zero skills` — 与编译器二进制文件捆绑的语言规�
 
 ```sh
 zero skills get language
-zero skills get zero --full
+zero skills get diagnostics
+zero skills get stdlib
 ```
 
 Skills 始终与已安装的编译器版本同步。使用 `zero skills get language` 的 Agent 总是能获得与它调用的二进制文件匹配的正确规则。

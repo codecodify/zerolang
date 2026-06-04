@@ -17,7 +17,7 @@ pub fn main(world: World) -> Void raises {
 Run it:
 
 ```bash
-zero run hello.0
+zero run examples/hello.0
 ```
 
 Output:
@@ -35,7 +35,7 @@ zero check hello.0
 ## Inspect the Program Graph
 
 ```bash
-zero graph --json hello.0
+zero graph dump hello.0
 ```
 
 Outputs structured ProgramGraph data: nodes, edges, types, effects, and other semantic facts.
@@ -43,7 +43,7 @@ Outputs structured ProgramGraph data: nodes, edges, types, effects, and other se
 ## Build an Executable
 
 ```bash
-zero build --emit exe --target linux-musl-x64 hello.0 --out ./hello
+zero build --emit exe --target linux-musl-x64 hello.0 --out .zero/out/hello
 ```
 
 ## Get Agent Skills
@@ -52,8 +52,11 @@ zero build --emit exe --target linux-musl-x64 hello.0 --out ./hello
 # List available skills
 zero skills list
 
-# Get full language guide
-zero skills get zero --full
+# Get language rules
+zero skills get language
+
+# Get diagnostics reference
+zero skills get diagnostics
 ```
 
 ## Next Steps
