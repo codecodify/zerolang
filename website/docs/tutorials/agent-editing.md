@@ -49,11 +49,18 @@ The output is structured JSON:
       "expected": "visible local, parameter, function, or builtin",
       "actual": "no visible symbol named 'message'",
       "help": "declare the name before using it",
-      "fixSafety": "behavior-preserving"
+      "fixSafety": "behavior-preserving",
+      "repair": {
+        "id": "manual-review",
+        "summary": "Inspect the diagnostic fields and choose a repair manually."
+      },
+      "related": []
     }
   ]
 }
 ```
+
+> **Note**: The above shows diagnostic fields only. The full `zero check --json` output also includes top-level `graph`, `compileTime`, `targetReadiness`, and `safetyFacts` objects.
 
 An agent reads this and knows:
 - **What**: identifier `message` does not exist
@@ -72,6 +79,7 @@ zero fix --plan --json agent-demo.0
 
 The compiler returns structured repair metadata. The `fixSafety` label tells the agent whether it can apply the fix autonomously:
 
+- `format-only` — changes only formatting
 - `behavior-preserving` and `local-edit` → safe to apply
 - `api-changing` → propose the change, but ask
 - `requires-human-review` → stop and ask the human
@@ -114,7 +122,10 @@ zero graph dump --json agent-demo.0
 The output contains nodes (declarations, expressions, types), edges (calls, data flow), and metadata. This is what an agent sees: not raw text, but structured semantic facts.
 
 Key fields:
+- `moduleIdentity` — module identifier
 - `graphHash` — a content hash that changes when the program's semantics change
+- `validation` — graph validation state
+- `counts` — node and edge counts
 - `nodes` — every declaration, expression, and type in the program
 - `edges` — relationships between nodes (calls, imports, data flow)
 

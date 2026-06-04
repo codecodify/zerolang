@@ -162,7 +162,7 @@ zero build --emit exe --target linux-musl-x64 src/main.0 --out ./mytool-linux
 zero doctor --json
 ```
 
-输出显示哪些目标可用、哪些工具链已安装。
+输出显示宿主检查结果、`targetToolchains` 和逐目标就绪矩阵。
 
 ## 第八步：检查二进制大小
 
@@ -171,6 +171,13 @@ zero size --json src/main.0
 ```
 
 输出包含：
+- `graph` — 图标识信息
+- `profileSemantics` — 配置语义
+- `profileCatalog` — 配置目录
+- `profileBudget` — 配置预算
+- `safetyFacts` — 安全性事实
+- `backendProfile` — 后端配置
+- `backendComparison` — 后端对比
 - `sizeBreakdown` — 每个段的大小
 - `retentionReasons` — 为什么保留每个辅助工具
 - `optimizationHints` — 减小大小的建议

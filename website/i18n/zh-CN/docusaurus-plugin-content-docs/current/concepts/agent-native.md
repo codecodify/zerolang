@@ -52,7 +52,12 @@ zero check --json hello.0
       "expected": "visible local, parameter, function, or builtin",
       "actual": "no visible symbol named 'message'",
       "help": "declare the name before using it",
-      "fixSafety": "behavior-preserving"
+      "fixSafety": "behavior-preserving",
+      "repair": {
+        "id": "manual-review",
+        "summary": "Inspect the diagnostic fields and choose a repair manually."
+      },
+      "related": []
     }
   ]
 }

@@ -188,7 +188,7 @@ Apply checked edits to a graph:
 ```sh
 zero graph patch hello.0 \
   --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"'
+  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 ### roundtrip
@@ -261,7 +261,7 @@ For larger edits, use a patch file:
 ```text
 zero-program-graph-patch v1
 expect graphHash "graph:a7f7e6899a73f3b4"
-set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"
+set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"
 insert node="#patch001" kind="Literal" parent="#expr_c403020c" edge="arg" order="1" type="String" value="again\n"
 rename node="#decl_ad8d9028" expect="main" value="start"
 delete node="#patch001"
@@ -293,17 +293,17 @@ All `zero graph` commands accept `--json` for structured output. Key fields:
 
 | Command | JSON Fields |
 |---------|-------------|
-| `dump` | `moduleIdentity`, `graphHash`, `counts`, `nodes`, `edges` |
-| `import` | `moduleIdentity`, `graphHash`, `saved.path` |
+| `dump` | `moduleIdentity`, `graphHash`, `validation`, `counts`, `nodes`, `edges` |
+| `import` | `moduleIdentity`, `graphHash`, `validation`, `saved.path` |
 | `validate` | `moduleIdentity`, `graphHash`, `counts`, `validation` |
-| `view` | `moduleIdentity`, `graphHash`, `source` |
-| `source-map` | Node IDs → source ranges, symbol/type/effect IDs |
-| `reconcile` | Identity decisions, ambiguous-match diagnostics |
-| `check` | `lowering: "direct-program-graph"`, target readiness, safety facts |
-| `size` | Size breakdown, retention reasons, optimization hints |
-| `build` | Artifact path, size, safety facts, incremental invalidation |
-| `patch` | Per-operation results, changed graph hash, saved path |
-| `roundtrip` | `semanticStable`, original/roundtripped graph hashes |
+| `view` | `moduleIdentity`, `graphHash`, `source`, optional output path |
+| `source-map` | Node IDs → source ranges, node hashes, symbol/type/effect IDs, file hash facts |
+| `reconcile` | Identity decisions, ambiguous-match diagnostics, simple graph patch text |
+| `check` | `moduleIdentity`, `graphHash`, `lowering: "direct-program-graph"`, target readiness, safety facts, graph-mapped diagnostics |
+| `size` | `graph` identity, `profileSemantics`, `profileCatalog`, `profileBudget`, `safetyFacts`, `backendProfile`, `backendComparison`, `sizeBreakdown`, `retentionReasons`, `optimizationHints` |
+| `build` | `graph` identity, selected `emit` kind, target, artifact path/size, safety facts, compiler cache facts, incremental invalidation |
+| `patch` | Per-operation results, changed graph hash, saved source/artifact path |
+| `roundtrip` | `semanticStable`, lowering mode, original/roundtripped graph hashes, raw counts, normalized semantic counts, optional ProgramGraph output |
 
 ## Further Reading
 

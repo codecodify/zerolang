@@ -162,7 +162,7 @@ Check target readiness:
 zero doctor --json
 ```
 
-The output shows which targets are available and which toolchains are installed.
+The output shows host checks plus `targetToolchains` and the per-target readiness matrix.
 
 ## Step 8: Inspect the Binary Size
 
@@ -171,6 +171,13 @@ zero size --json src/main.0
 ```
 
 The output includes:
+- `graph` — graph identity information
+- `profileSemantics` — profile semantics
+- `profileCatalog` — profile catalog
+- `profileBudget` — profile budget
+- `safetyFacts` — safety facts
+- `backendProfile` — backend profile
+- `backendComparison` — backend comparison
 - `sizeBreakdown` — size per section
 - `retentionReasons` — why each helper is retained
 - `optimizationHints` — suggestions for reducing size

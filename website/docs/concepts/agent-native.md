@@ -56,7 +56,8 @@ zero check --json hello.0
       "repair": {
         "id": "manual-review",
         "summary": "Inspect the diagnostic fields and choose a repair manually."
-      }
+      },
+      "related": []
     }
   ]
 }

@@ -49,11 +49,18 @@ zero check --json agent-demo.0
       "expected": "visible local, parameter, function, or builtin",
       "actual": "no visible symbol named 'message'",
       "help": "declare the name before using it",
-      "fixSafety": "behavior-preserving"
+      "fixSafety": "behavior-preserving",
+      "repair": {
+        "id": "manual-review",
+        "summary": "Inspect the diagnostic fields and choose a repair manually."
+      },
+      "related": []
     }
   ]
 }
 ```
+
+> **注意**：以上仅展示诊断相关字段。完整的 `zero check --json` 输出还包含顶层的 `graph`、`compileTime`、`targetReadiness` 和 `safetyFacts` 对象。
 
 Agent 读取这些信息就能知道：
 - **什么问题**：标识符 `message` 不存在
@@ -72,6 +79,7 @@ zero fix --plan --json agent-demo.0
 
 编译器返回结构化的修复元数据。`fixSafety` 标签告诉 Agent 是否可以自主应用修复：
 
+- `format-only` — 仅改变格式，可以安全应用
 - `behavior-preserving` 和 `local-edit` → 可以安全应用
 - `api-changing` → 提议变更，但需要确认
 - `requires-human-review` → 停下来，询问人类
@@ -114,7 +122,10 @@ zero graph dump --json agent-demo.0
 输出包含节点（声明、表达式、类型）、边（调用、数据流）和元数据。这就是 Agent 看到的：不是原始文本，而是结构化的语义事实。
 
 关键字段：
+- `moduleIdentity` — 模块标识
 - `graphHash` — 内容哈希，程序语义改变时会变化
+- `validation` — 图验证状态
+- `counts` — 节点和边的计数
 - `nodes` — 程序中的每个声明、表达式和类型
 - `edges` — 节点之间的关系（调用、导入、数据流）
 

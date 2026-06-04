@@ -188,7 +188,7 @@ zero graph build --json --emit obj --target linux-musl-x64 --out hello.o hello.p
 ```sh
 zero graph patch hello.0 \
   --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"'
+  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 ### roundtrip
@@ -209,7 +209,7 @@ zero graph roundtrip --json hello.program-graph
 更新现有节点的标量字段：
 
 ```
-set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"
+set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"
 ```
 
 可编辑字段：`name`、`type`、`value`、`public`、`mutable`、`static`、`fallible`、`exportC`。
@@ -261,7 +261,7 @@ rename node="#decl_ad8d9028" expect="main" value="start"
 ```text
 zero-program-graph-patch v1
 expect graphHash "graph:a7f7e6899a73f3b4"
-set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"
+set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"
 insert node="#patch001" kind="Literal" parent="#expr_c403020c" edge="arg" order="1" type="String" value="again\n"
 rename node="#decl_ad8d9028" expect="main" value="start"
 delete node="#patch001"
