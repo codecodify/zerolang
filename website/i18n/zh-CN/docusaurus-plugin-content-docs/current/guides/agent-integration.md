@@ -289,7 +289,7 @@ zero graph dump --json hello.0
 ```bash
 zero graph patch hello.0 \
   --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"'
+  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 支持的操作：`set`、`insert`、`insertEdge`、`replace`、`delete`、`rename`。
@@ -313,9 +313,9 @@ zero skills get zero --full # 完整的 Agent 指南
 | `zero check --json` | `schemaVersion`、`ok`、`diagnostics[].{code, severity, message, expected, actual, fixSafety, repair}` |
 | `zero fix --plan --json` | `plan[].{operation, target, fixSafety, summary}` |
 | `zero graph dump --json` | `moduleIdentity`、`graphHash`、`counts`、`nodes[].{id, kind, name, type, value}`、`edges[].{source, target, kind}` |
-| `zero graph patch` | `results[].{op, status}`、`graphHash`、`saved` |
-| `zero doctor --json` | `version`、`platform`、`checks` |
-| `zero size --json` | `graph`、`sizeBreakdown`、`optimizationHints` |
+| `zero graph patch` | `results[].{op, node, field, status}`、`graphHash`、`saved` |
+| `zero doctor --json` | `version`、`platform`、`targetToolchains`、逐目标就绪矩阵 |
+| `zero size --json` | `graph`、`profileSemantics`、`profileCatalog`、`profileBudget`、`safetyFacts`、`backendProfile`、`backendComparison`、`sizeBreakdown`、`retentionReasons`、`optimizationHints` |
 
 每个响应都包含 `schemaVersion`，Agent 可以据此处理不同编译器版本间的格式变化。
 
@@ -327,8 +327,8 @@ zero skills get zero --full # 完整的 Agent 指南
 |------|------|-----------|
 | `format-only` | 仅改变空白或格式 | 直接应用 |
 | `behavior-preserving` | 保持程序行为不变 | 直接应用 |
-| `local-edit` | 限制在当前作用域或文件内 | 直接应用 |
-| `api-changing` | 改变函数签名或导出项 | 向用户提议，不自动应用 |
+| `local-edit` | 限制在当前局部作用域或文件内 | 直接应用 |
+| `api-changing` | 改变函数签名、导出名称、包 API 或调用点 | 向用户提议，不自动应用 |
 | `requires-human-review` | 有风险或不确定 | 展示计划，等待批准 |
 
 安全等级从低到高为：`format-only` < `behavior-preserving` < `local-edit` < `api-changing` < `requires-human-review`。Agent 只应自动应用前三个标签的修复。

@@ -289,7 +289,7 @@ Apply compiler-verified semantic edits.
 ```bash
 zero graph patch hello.0 \
   --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello\n" value="hello patched\n"'
+  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 Operations: `set`, `insert`, `insertEdge`, `replace`, `delete`, `rename`.
@@ -313,9 +313,9 @@ All `zero` commands that accept `--json` produce versioned, structured output. K
 | `zero check --json` | `schemaVersion`, `ok`, `diagnostics[].{code, severity, message, expected, actual, fixSafety, repair}` |
 | `zero fix --plan --json` | `plan[].{operation, target, fixSafety, summary}` |
 | `zero graph dump --json` | `moduleIdentity`, `graphHash`, `counts`, `nodes[].{id, kind, name, type, value}`, `edges[].{source, target, kind}` |
-| `zero graph patch` | `results[].{op, status}`, `graphHash`, `saved` |
-| `zero doctor --json` | `version`, `platform`, `checks` |
-| `zero size --json` | `graph`, `sizeBreakdown`, `optimizationHints` |
+| `zero graph patch` | `results[].{op, node, field, status}`, `graphHash`, `saved` |
+| `zero doctor --json` | `version`, `platform`, `targetToolchains`, per-target readiness matrix |
+| `zero size --json` | `graph`, `profileSemantics`, `profileCatalog`, `profileBudget`, `safetyFacts`, `backendProfile`, `backendComparison`, `sizeBreakdown`, `retentionReasons`, `optimizationHints` |
 
 Every response includes `schemaVersion` so agents can handle format changes across compiler versions.
 
@@ -327,8 +327,8 @@ Every fix carries a `fixSafety` label that tells the agent how to handle it:
 |-------|---------|----------------|
 | `format-only` | Only changes whitespace or formatting | Apply directly |
 | `behavior-preserving` | Preserves program behavior | Apply directly |
-| `local-edit` | Confined to the current scope or file | Apply directly |
-| `api-changing` | Changes function signatures or exports | Propose to user; do not auto-apply |
+| `local-edit` | Confined to the current local scope or file | Apply directly |
+| `api-changing` | Changes function signatures, exported names, package APIs, or call sites | Propose to user; do not auto-apply |
 | `requires-human-review` | Risky or ambiguous | Show plan; wait for approval |
 
 The safety hierarchy is: `format-only` < `behavior-preserving` < `local-edit` < `api-changing` < `requires-human-review`. An agent should apply fixes autonomously only for the first three labels.
