@@ -18,17 +18,40 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Language',
+      label: 'Tutorials',
       items: [
-        'language/syntax',
+        'tutorials/agent-editing',
+        'tutorials/build-cli',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'How-to Guides',
+      items: [
+        'how-to/graph-patch-refactoring',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Concepts',
+      items: [
+        'concepts/agent-native',
         'language/graph-first',
         'language/effects',
       ],
     },
     {
       type: 'category',
-      label: 'CLI',
+      label: 'Language',
       items: [
+        'language/syntax',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Reference',
+      items: [
+        'reference/program-graph',
         'cli/commands',
         'cli/diagnostics',
       ],
