@@ -26,6 +26,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Guides',
+      items: [
+        'guides/agent-integration',
+      ],
+    },
+    {
+      type: 'category',
       label: 'How-to Guides',
       items: [
         'how-to/graph-patch-refactoring',
@@ -52,6 +59,7 @@ const sidebars: SidebarsConfig = {
       label: 'Reference',
       items: [
         'reference/program-graph',
+        'reference/diagnostics-table',
         'cli/commands',
         'cli/diagnostics',
       ],

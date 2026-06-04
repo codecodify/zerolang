@@ -11,13 +11,13 @@
  */
 
 import {themes as prismThemes} from 'prism-react-renderer';
+import localSearch from '@easyops-cn/docusaurus-search-local';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 import {siteConfig} from './config/site';
 import {navbarConfig} from './config/navbar';
 import {footerConfig} from './config/footer';
-import {algoliaConfig} from './config/algolia';
 
 const config: Config = {
   title: siteConfig.title,
@@ -79,8 +79,17 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
     },
-    algolia: algoliaConfig,
+    algolia: undefined,
   } satisfies Preset.ThemeConfig,
+
+  plugins: [
+    [localSearch, {
+      hashed: true,
+      language: ['en', 'zh'],
+      highlightSearchTermsOnTargetPage: true,
+      searchResultLimits: 10,
+    }],
+  ],
 };
 
 export default config;

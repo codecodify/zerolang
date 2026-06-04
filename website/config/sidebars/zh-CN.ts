@@ -26,6 +26,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: '指南',
+      items: [
+        'guides/agent-integration',
+      ],
+    },
+    {
+      type: 'category',
       label: '操作指南',
       items: [
         'how-to/graph-patch-refactoring',
@@ -52,6 +59,7 @@ const sidebars: SidebarsConfig = {
       label: '参考',
       items: [
         'reference/program-graph',
+        'reference/diagnostics-table',
         'cli/commands',
         'cli/diagnostics',
       ],
