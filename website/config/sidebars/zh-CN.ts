@@ -18,17 +18,48 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '语言',
+      label: '教程',
       items: [
-        'language/syntax',
+        'tutorials/agent-editing',
+        'tutorials/build-cli',
+      ],
+    },
+    {
+      type: 'category',
+      label: '指南',
+      items: [
+        'guides/agent-integration',
+      ],
+    },
+    {
+      type: 'category',
+      label: '操作指南',
+      items: [
+        'how-to/graph-patch-refactoring',
+      ],
+    },
+    {
+      type: 'category',
+      label: '概念',
+      items: [
+        'concepts/agent-native',
         'language/graph-first',
         'language/effects',
       ],
     },
     {
       type: 'category',
-      label: 'CLI',
+      label: '语言',
       items: [
+        'language/syntax',
+      ],
+    },
+    {
+      type: 'category',
+      label: '参考',
+      items: [
+        'reference/program-graph',
+        'reference/diagnostics-table',
         'cli/commands',
         'cli/diagnostics',
       ],
