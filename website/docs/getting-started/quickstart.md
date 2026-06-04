@@ -58,5 +58,5 @@ zero skills get zero --full
 
 ## Next Steps
 
-- Read the [Language Syntax](../language/syntax) guide
-- Explore the [CLI Reference](../cli/commands)
+- Read the [Language Syntax](/docs/language/syntax) guide
+- Explore the [CLI Reference](/docs/cli/commands)
