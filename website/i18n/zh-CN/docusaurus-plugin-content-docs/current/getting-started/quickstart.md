@@ -58,5 +58,5 @@ zero skills get zero --full
 
 ## 下一步
 
-- 阅读 [语言语法](../language/syntax)
-- 查看 [CLI 命令参考](../cli/commands)
+- 阅读 [语言语法](/zh-CN/docs/language/syntax)
+- 查看 [CLI 命令参考](/zh-CN/docs/cli/commands)
