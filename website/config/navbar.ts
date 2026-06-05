@@ -23,7 +23,7 @@ export const navbarConfig: Navbar = {
     {to: '/blog', label: 'Blog', position: 'left'},
     {
       href: 'https://zerolang.ai',
-      label: 'Official',
+      label: 'zerolang.ai',
       position: 'right',
     },
     {

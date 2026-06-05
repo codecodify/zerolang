@@ -31,7 +31,7 @@ export const footerConfig: Footer = {
           href: 'https://github.com/vercel-labs/zerolang',
         },
         {
-          label: 'Official Site',
+          label: 'zerolang.ai',
           href: 'https://zerolang.ai',
         },
       ],
@@ -46,5 +46,5 @@ export const footerConfig: Footer = {
       ],
     },
   ],
-  copyright: `Copyright © ${new Date().getFullYear()} Zerolang Community. Built with Docusaurus.`,
+  copyright: `Copyright © ${new Date().getFullYear()} Zerolang Community. Part of the Vercel Labs ecosystem.`,
 };

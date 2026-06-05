@@ -1,4 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-  <circle cx="50" cy="50" r="45" fill="#2563eb"/>
-  <text x="50" y="65" font-family="monospace" font-size="45" font-weight="bold" fill="white" text-anchor="middle">0</text>
+  <!-- 外环：断口圆环，暗示开放/实验性 -->
+  <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" stroke-width="4"
+          stroke-dasharray="220 32" stroke-linecap="round"/>
+  <!-- 内部 Graph 节点：三个点 + 连接边 -->
+  <circle cx="38" cy="42" r="4" fill="currentColor"/>
+  <circle cx="62" cy="42" r="4" fill="currentColor"/>
+  <circle cx="50" cy="60" r="4" fill="currentColor"/>
+  <line x1="38" y1="42" x2="62" y2="42" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+  <line x1="38" y1="42" x2="50" y2="60" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+  <line x1="62" y1="42" x2="50" y2="60" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
 </svg>

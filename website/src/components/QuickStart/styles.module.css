@@ -1,0 +1,110 @@
+.quickStart {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+[data-theme='dark'] .quickStart {
+  background: #1e293b;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: #e2e8f0;
+}
+
+.stepsRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.step {
+  flex: 1;
+  max-width: 300px;
+  text-align: center;
+}
+
+.stepNumber {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #818cf8, #6366f1, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.stepTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .stepTitle {
+  color: #e2e8f0;
+}
+
+.commandBlock {
+  background: #1e293b;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  text-align: left;
+}
+
+.command {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.8125rem;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow-x: auto;
+  display: block;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #6366f1;
+  padding-top: 1rem;
+  flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .quickStart {
+    padding: 3rem 0;
+  }
+
+  .stepsRow {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .step {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .arrow {
+    transform: rotate(90deg);
+    padding-top: 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.375rem;
+  }
+}

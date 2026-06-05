@@ -1,0 +1,117 @@
+.codePreview {
+  padding: 5rem 0;
+  background: #f8fafc;
+}
+
+[data-theme='dark'] .codePreview {
+  background: #0f172a;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 1rem;
+}
+
+[data-theme='dark'] .sectionTitle {
+  color: #e2e8f0;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+[data-theme='dark'] .sectionSubtitle {
+  color: #94a3b8;
+}
+
+.window {
+  max-width: 680px;
+  margin: 0 auto;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: #1e293b;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.tabBar {
+  display: flex;
+  background: #0f172a;
+  border-bottom: 1px solid #334155;
+  padding: 0 0.75rem;
+}
+
+.tab {
+  padding: 0.625rem 1rem;
+  font-size: 0.8125rem;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  color: #64748b;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  color: #94a3b8;
+}
+
+.tabActive {
+  color: #e2e8f0;
+  border-bottom-color: #6366f1;
+}
+
+.fileBar {
+  padding: 0.5rem 1.25rem;
+  border-bottom: 1px solid #334155;
+}
+
+.filename {
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.codeArea {
+  padding: 1.25rem;
+  overflow-x: auto;
+}
+
+.codeBlock {
+  margin: 0;
+  font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+  color: #e2e8f0;
+  white-space: pre;
+  tab-size: 4;
+}
+
+@media screen and (max-width: 768px) {
+  .codePreview {
+    padding: 3rem 0;
+  }
+
+  .sectionTitle {
+    font-size: 1.375rem;
+  }
+
+  .window {
+    margin: 0 1rem;
+  }
+
+  .codeBlock {
+    font-size: 0.75rem;
+  }
+}

@@ -11,6 +11,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Getting Started',
+      collapsed: false,
       items: [
         'getting-started/install',
         'getting-started/quickstart',
@@ -18,40 +19,22 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Tutorials',
-      items: [
-        'tutorials/agent-editing',
-        'tutorials/build-cli',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Guides',
-      items: [
-        'guides/agent-integration',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'How-to Guides',
-      items: [
-        'how-to/graph-patch-refactoring',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Concepts',
-      items: [
-        'concepts/agent-native',
-        'language/graph-first',
-        'language/effects',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Language',
+      label: 'Language & Concepts',
       items: [
         'language/syntax',
+        'language/effects',
+        'language/graph-first',
+        'concepts/agent-native',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Guides & Tutorials',
+      items: [
+        'guides/agent-integration',
+        'tutorials/agent-editing',
+        'tutorials/build-cli',
+        'how-to/graph-patch-refactoring',
       ],
     },
     {
@@ -62,12 +45,6 @@ const sidebars: SidebarsConfig = {
         'reference/diagnostics-table',
         'cli/commands',
         'cli/diagnostics',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Standard Library',
-      items: [
         'stdlib/overview',
       ],
     },

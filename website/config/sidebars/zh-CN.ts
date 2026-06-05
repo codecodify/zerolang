@@ -11,6 +11,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: '快速入门',
+      collapsed: false,
       items: [
         'getting-started/install',
         'getting-started/quickstart',
@@ -18,40 +19,22 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: '教程',
-      items: [
-        'tutorials/agent-editing',
-        'tutorials/build-cli',
-      ],
-    },
-    {
-      type: 'category',
-      label: '指南',
-      items: [
-        'guides/agent-integration',
-      ],
-    },
-    {
-      type: 'category',
-      label: '操作指南',
-      items: [
-        'how-to/graph-patch-refactoring',
-      ],
-    },
-    {
-      type: 'category',
-      label: '概念',
-      items: [
-        'concepts/agent-native',
-        'language/graph-first',
-        'language/effects',
-      ],
-    },
-    {
-      type: 'category',
-      label: '语言',
+      label: '语言与概念',
       items: [
         'language/syntax',
+        'language/effects',
+        'language/graph-first',
+        'concepts/agent-native',
+      ],
+    },
+    {
+      type: 'category',
+      label: '指南与教程',
+      items: [
+        'guides/agent-integration',
+        'tutorials/agent-editing',
+        'tutorials/build-cli',
+        'how-to/graph-patch-refactoring',
       ],
     },
     {
@@ -62,12 +45,6 @@ const sidebars: SidebarsConfig = {
         'reference/diagnostics-table',
         'cli/commands',
         'cli/diagnostics',
-      ],
-    },
-    {
-      type: 'category',
-      label: '标准库',
-      items: [
         'stdlib/overview',
       ],
     },

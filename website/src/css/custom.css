@@ -1,11 +1,34 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Zerolang Design System
+ * ============================================================
+ * A complete brand CSS design system for the Zerolang community site.
+ * Built on top of Docusaurus Infima — overrides --ifm-* variables
+ * to maintain full framework compatibility.
+ *
+ * Sections:
+ *   1. Brand Variables (Light)
+ *   2. Brand Variables (Dark)
+ *   3. Global Typography
+ *   4. Code Blocks
+ *   5. Sidebar
+ *   6. Table of Contents
+ *   7. Tables
+ *   8. Admonitions
+ *   9. Search
+ *  10. Buttons / Cards / Links
+ *  11. Animations
+ *  12. Homepage Patches
+ *  13. Responsive
+ * ============================================================
  */
 
-/* You can override the default Infima variables here. */
+
+/* ============================================================
+ * 1. Brand Variables — Light Mode
+ * ============================================================ */
+
 :root {
+  /* Primary palette */
   --ifm-color-primary: #2563eb;
   --ifm-color-primary-dark: #1d4ed8;
   --ifm-color-primary-darker: #1e40af;
@@ -13,12 +36,46 @@
   --ifm-color-primary-light: #3b82f6;
   --ifm-color-primary-lighter: #60a5fa;
   --ifm-color-primary-lightest: #93c5fd;
-  --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-color-secondary: #06b6d4;
+
+  /* Typography */
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', 'Fira Code', 'Source Code Pro',
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --ifm-line-height-base: 1.75;
+  --ifm-font-size-base: 16px;
+  --ifm-code-font-size: 0.875em;
+
+  /* Layout */
+  --ifm-container-width-xl: 1320px;
+  --doc-sidebar-width: 260px;
+
+  /* Zerolang surface tokens */
+  --zl-surface-bg: #ffffff;
+  --zl-surface-sidebar: #f8f9fb;
+  --zl-surface-code: #f6f8fa;
+  --zl-surface-hover: rgba(37, 99, 235, 0.06);
+  --zl-border-subtle: #e5e7eb;
+  --zl-text-secondary: #6b7280;
+  --zl-text-tertiary: #9ca3af;
+
+  /* Code highlight */
+  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.08);
+
+  /* Shadows */
+  --zl-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --zl-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+  --zl-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
+
+/* ============================================================
+ * 2. Brand Variables — Dark Mode (GitHub Dark palette)
+ * ============================================================ */
+
 [data-theme='dark'] {
+  /* Primary palette — lighter values for dark backgrounds */
   --ifm-color-primary: #60a5fa;
   --ifm-color-primary-dark: #3b82f6;
   --ifm-color-primary-darker: #2563eb;
@@ -26,5 +83,646 @@
   --ifm-color-primary-light: #93c5fd;
   --ifm-color-primary-lighter: #bfdbfe;
   --ifm-color-primary-lightest: #dbeafe;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-color-secondary: #22d3ee;
+
+  /* Backgrounds */
+  --ifm-background-color: #0f1117;
+  --zl-surface-bg: #0f1117;
+  --zl-surface-sidebar: #161b22;
+  --zl-surface-code: #161b22;
+  --zl-surface-hover: rgba(96, 165, 250, 0.08);
+  --zl-border-subtle: #21262d;
+  --zl-text-secondary: #8b949e;
+  --zl-text-tertiary: #6e7681;
+
+  /* Code highlight */
+  --docusaurus-highlighted-code-line-bg: rgba(96, 165, 250, 0.1);
+
+  /* Shadows — higher opacity for dark backgrounds */
+  --zl-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --zl-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --zl-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+
+/* ============================================================
+ * 3. Global Typography
+ * ============================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  border-bottom: 1px solid var(--zl-border-subtle);
+  padding-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  margin-top: 2.5rem;
+  border-bottom: 1px solid var(--zl-border-subtle);
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+}
+
+/* Anchor hash hint on heading hover */
+h2 a:hover::after {
+  content: ' #';
+  color: var(--ifm-color-primary);
+  font-weight: 400;
+}
+
+p {
+  line-height: 1.8;
+}
+
+ul,
+ol {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+
+li {
+  margin-bottom: 0.35rem;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: var(--zl-surface-code);
+  border: 1px solid var(--zl-border-subtle);
+  border-radius: 4px;
+  padding: 0.15em 0.35em;
+  font-size: 0.875em;
+  font-weight: 500;
+}
+
+/* Blockquote */
+blockquote {
+  border-left: 3px solid var(--ifm-color-primary);
+  background: var(--zl-surface-hover);
+  border-radius: 0 6px 6px 0;
+  padding: 0.75rem 1rem;
+}
+
+blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+/* Horizontal rule */
+hr {
+  border-top: 1px solid var(--zl-border-subtle);
+  margin: 2.5rem 0;
+}
+
+/* Markdown content links */
+.markdown a,
+article a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: rgba(37, 99, 235, 0.3);
+  transition: text-decoration-color 0.15s ease;
+}
+
+.markdown a:hover,
+article a:hover {
+  text-decoration-color: var(--ifm-color-primary);
+}
+
+/* Content max-width */
+.markdown {
+  max-width: 720px;
+}
+
+/* Breadcrumbs hover */
+.breadcrumbs__link:hover {
+  background: var(--zl-surface-hover);
+  border-radius: 4px;
+}
+
+
+/* ============================================================
+ * 4. Code Blocks
+ * ============================================================ */
+
+pre[class*='language-'] {
+  border-radius: 8px;
+  border: 1px solid var(--zl-border-subtle);
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  tab-size: 2;
+}
+
+pre[class*='language-'] code {
+  display: block;
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+}
+
+/* Line numbers */
+.line-numbers .line-numbers-rows {
+  border-right: 1px solid var(--zl-border-subtle);
+  padding-right: 0.5rem;
+  opacity: 0.4;
+}
+
+/* Highlighted lines */
+pre .highlight-line {
+  background: var(--docusaurus-highlighted-code-line-bg);
+  border-left: 3px solid var(--ifm-color-primary);
+  margin: 0 -1.25rem;
+  padding: 0 1.25rem;
+}
+
+/* Code block title bar */
+div[class^='codeBlockTitle'] {
+  border-bottom: 1px solid var(--zl-border-subtle);
+  border-radius: 8px 8px 0 0;
+  background: var(--zl-surface-code);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--zl-text-secondary);
+  padding: 0.4rem 1rem;
+  font-family: var(--ifm-font-family-monospace);
+}
+
+/* Copy button — hidden by default, shown on hover */
+button[class*='cleanBtn'] {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+div[class^='codeBlockContainer']:hover button[class*='cleanBtn'] {
+  opacity: 1;
+}
+
+/* Dark mode code blocks */
+[data-theme='dark'] pre[class*='language-'] {
+  background: #0d1117;
+  border-color: #21262d;
+}
+
+[data-theme='dark'] div[class^='codeBlockTitle'] {
+  background: #161b22;
+  border-color: #21262d;
+}
+
+
+/* ============================================================
+ * 5. Sidebar
+ * ============================================================ */
+
+.menu {
+  padding: 1rem 0;
+  font-size: 0.9375rem;
+}
+
+/* Collapsible category headers */
+.menu__list-item-collapsible .menu__link {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--zl-text-secondary);
+  padding: 0.4rem 0.75rem;
+  margin: 0;
+}
+
+.menu__list-item-collapsible .menu__link:hover {
+  color: var(--ifm-color-primary);
+  background: transparent;
+}
+
+/* Regular sidebar links */
+.menu__link {
+  border-radius: 6px;
+  margin: 1px 0.5rem;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9375rem;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.menu__link:hover {
+  background: var(--zl-surface-hover);
+  text-decoration: none;
+}
+
+/* Active link */
+.menu__link--active:not(.menu__link--sublist) {
+  background: var(--zl-surface-hover);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+  border-left: 3px solid var(--ifm-color-primary);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Caret animation */
+.menu__caret {
+  transition: transform 0.2s ease;
+}
+
+.menu__caret--close {
+  transform: rotate(-90deg);
+}
+
+/* Sidebar scrollbar */
+.theme-doc-sidebar-menu::-webkit-scrollbar {
+  width: 4px;
+}
+
+.theme-doc-sidebar-menu::-webkit-scrollbar-thumb {
+  background: var(--zl-border-subtle);
+  border-radius: 2px;
+}
+
+
+/* ============================================================
+ * 6. Table of Contents
+ * ============================================================ */
+
+.table-of-contents {
+  font-size: 0.8125rem;
+  line-height: 1.6;
+  padding-left: 0;
+  border-left: 1px solid var(--zl-border-subtle);
+}
+
+.table-of-contents__link {
+  color: var(--zl-text-secondary);
+  text-decoration: none;
+  padding: 0.15rem 0 0.15rem 1rem;
+  display: block;
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.table-of-contents__link:hover {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+}
+
+.table-of-contents__link--active {
+  color: var(--ifm-color-primary);
+  border-left-color: var(--ifm-color-primary);
+  font-weight: 500;
+}
+
+.table-of-contents__link--level-3 {
+  padding-left: 2rem;
+  font-size: 0.78rem;
+}
+
+
+/* ============================================================
+ * 7. Tables
+ * ============================================================ */
+
+.markdown table {
+  display: block;
+  overflow-x: auto;
+  border: 1px solid var(--zl-border-subtle);
+  border-radius: 8px;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.markdown table thead {
+  background: var(--zl-surface-sidebar);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.markdown table th {
+  font-weight: 600;
+  font-size: 0.8125rem;
+  color: var(--zl-text-secondary);
+  padding: 0.625rem 1rem;
+  border-bottom: 2px solid var(--zl-border-subtle);
+  white-space: nowrap;
+}
+
+.markdown table td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--zl-border-subtle);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.markdown table tbody tr:nth-child(even) {
+  background: var(--zl-surface-hover);
+}
+
+.markdown table tbody tr:hover {
+  background: rgba(37, 99, 235, 0.04);
+}
+
+[data-theme='dark'] .markdown table tbody tr:hover {
+  background: rgba(96, 165, 250, 0.06);
+}
+
+.markdown table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Inline code inside table cells */
+.markdown table td code {
+  font-size: 0.8125rem;
+  background: var(--zl-surface-code);
+  border: 1px solid var(--zl-border-subtle);
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+  white-space: nowrap;
+}
+
+.markdown table td:first-child code {
+  font-weight: 600;
+  color: var(--ifm-color-primary);
+}
+
+
+/* ============================================================
+ * 8. Admonitions
+ * ============================================================ */
+
+/* Base — remove default left border, apply rounded box style */
+.admonition {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.admonition-heading {
+  border-radius: 8px 8px 0 0;
+  padding: 0.5rem 1rem;
+}
+
+.admonition-content {
+  padding: 0.5rem 1rem 0.75rem;
+}
+
+/* Note */
+.admonition--note {
+  background: rgba(37, 99, 235, 0.04);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.admonition--note .admonition-heading {
+  background: rgba(37, 99, 235, 0.06);
+  color: #2563eb;
+}
+
+/* Tip */
+.admonition--tip {
+  background: rgba(16, 185, 129, 0.04);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.admonition--tip .admonition-heading {
+  background: rgba(16, 185, 129, 0.06);
+  color: #10b981;
+}
+
+/* Info */
+.admonition--info {
+  background: rgba(99, 102, 241, 0.04);
+  border-color: rgba(99, 102, 241, 0.2);
+}
+
+.admonition--info .admonition-heading {
+  background: rgba(99, 102, 241, 0.06);
+  color: #6366f1;
+}
+
+/* Caution */
+.admonition--caution {
+  background: rgba(245, 158, 11, 0.04);
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.admonition--caution .admonition-heading {
+  background: rgba(245, 158, 11, 0.06);
+  color: #d97706;
+}
+
+/* Danger */
+.admonition--danger {
+  background: rgba(239, 68, 68, 0.04);
+  border-color: rgba(239, 68, 68, 0.2);
+}
+
+.admonition--danger .admonition-heading {
+  background: rgba(239, 68, 68, 0.06);
+  color: #ef4444;
+}
+
+/* Dark mode admonitions — brighter translucent fills */
+[data-theme='dark'] .admonition--note {
+  background: rgba(96, 165, 250, 0.06);
+  border-color: rgba(96, 165, 250, 0.2);
+}
+
+[data-theme='dark'] .admonition--note .admonition-heading {
+  background: rgba(96, 165, 250, 0.08);
+  color: #93c5fd;
+}
+
+[data-theme='dark'] .admonition--tip {
+  background: rgba(52, 211, 153, 0.06);
+  border-color: rgba(52, 211, 153, 0.2);
+}
+
+[data-theme='dark'] .admonition--tip .admonition-heading {
+  background: rgba(52, 211, 153, 0.08);
+  color: #6ee7b7;
+}
+
+[data-theme='dark'] .admonition--info {
+  background: rgba(129, 140, 248, 0.06);
+  border-color: rgba(129, 140, 248, 0.2);
+}
+
+[data-theme='dark'] .admonition--info .admonition-heading {
+  background: rgba(129, 140, 248, 0.08);
+  color: #a5b4fc;
+}
+
+[data-theme='dark'] .admonition--caution {
+  background: rgba(251, 191, 36, 0.06);
+  border-color: rgba(251, 191, 36, 0.2);
+}
+
+[data-theme='dark'] .admonition--caution .admonition-heading {
+  background: rgba(251, 191, 36, 0.08);
+  color: #fcd34d;
+}
+
+[data-theme='dark'] .admonition--danger {
+  background: rgba(248, 113, 113, 0.06);
+  border-color: rgba(248, 113, 113, 0.2);
+}
+
+[data-theme='dark'] .admonition--danger .admonition-heading {
+  background: rgba(248, 113, 113, 0.08);
+  color: #fca5a5;
+}
+
+
+/* ============================================================
+ * 9. Search
+ * ============================================================ */
+
+.navbar__search-input {
+  background: var(--zl-surface-sidebar);
+  border: 1px solid var(--zl-border-subtle);
+  border-radius: 8px;
+  padding: 0.4rem 0.75rem 0.4rem 2.25rem;
+  font-size: 0.875rem;
+  width: 200px;
+  transition: width 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.navbar__search-input:focus {
+  width: 280px;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  outline: none;
+}
+
+[data-theme='dark'] .navbar__search-input {
+  background: #161b22;
+  border-color: #30363d;
+}
+
+[data-theme='dark'] .navbar__search-input:focus {
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15);
+}
+
+
+/* ============================================================
+ * 10. Buttons / Cards / Links
+ * ============================================================ */
+
+/* Primary button hover lift */
+.button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--zl-shadow-md);
+}
+
+/* Outline button fills on hover */
+.button--outline:hover {
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+}
+
+/* Card hover lift */
+.card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--zl-shadow-lg);
+}
+
+/* Body text links */
+.markdown a,
+article a:not(.card):not(.button) {
+  text-underline-offset: 0.2em;
+}
+
+
+/* ============================================================
+ * 11. Animations
+ * ============================================================ */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================================================
+ * 12. Homepage Patches
+ * ============================================================ */
+
+.hero--primary {
+  background: none !important;
+  color: inherit !important;
+}
+
+
+/* ============================================================
+ * 13. Responsive
+ * ============================================================ */
+
+@media (max-width: 996px) {
+  h1 { font-size: 1.65rem; }
+  h2 { font-size: 1.3rem; margin-top: 2rem; }
+  h3 { font-size: 1.125rem; }
+  h4 { font-size: 1rem; }
+
+  p, ul, ol { line-height: 1.7; }
+
+  .markdown table { font-size: 0.8125rem; }
+  .markdown table th { font-size: 0.75rem; padding: 0.5rem 0.75rem; }
+  .markdown table td { padding: 0.5rem 0.75rem; }
+
+  pre[class*='language-'] { font-size: 0.8125rem; }
+
+  .navbar__search-input { width: 160px; }
+  .navbar__search-input:focus { width: 200px; }
+
+  .table-of-contents { font-size: 0.78rem; }
+}
+
+@media (max-width: 576px) {
+  h1 { font-size: 1.4rem; }
+  h2 { font-size: 1.15rem; }
+
+  .markdown table { font-size: 0.75rem; border-radius: 6px; }
+  .markdown table th,
+  .markdown table td { padding: 0.375rem 0.625rem; }
+
+  pre[class*='language-'] {
+    font-size: 0.78rem;
+    border-radius: 6px;
+  }
+
+  blockquote { padding: 0.5rem 0.75rem; }
+
+  .menu { font-size: 0.875rem; }
 }
