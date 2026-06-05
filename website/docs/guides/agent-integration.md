@@ -62,7 +62,7 @@ When writing or fixing Zerolang code, always follow this loop:
 - Always use `--json` flags for structured output. Never parse plain-text CLI output.
 - Stable error codes (e.g., `NAM003`, `TYP002`) are part of the compiler's public contract. You can rely on them.
 - For semantic refactoring, use `zero graph dump --json <file>` to read the ProgramGraph, then `zero graph patch` with `--expect-graph-hash` for safe edits.
-- Use `zero skills get language` to fetch version-matched language rules. Use `zero skills get zero --full` for the complete agent guide.
+- Use `zero skills get language` to fetch version-matched language rules. Use `zero skills get diagnostics` for diagnostic reference.
 - Do NOT guess Zerolang syntax. If unsure, run `zero skills get language` first.
 ```
 
@@ -176,7 +176,7 @@ Graph patches are verified by the compiler before being applied.
 
 ```bash
 zero skills get language        # version-matched language rules
-zero skills get zero --full     # complete agent guide
+zero skills get diagnostics     # diagnostic reference
 ```
 
 ### Building
@@ -275,7 +275,7 @@ zero graph dump --json hello.0
 ```json
 {
   "moduleIdentity": "hello",
-  "graphHash": "graph:a7f7e6899a73f3b4",
+  "graphHash": "graph:YOUR_HASH",
   "counts": { "nodes": 12, "edges": 8 },
   "nodes": [ ... ],
   "edges": [ ... ]
@@ -288,8 +288,8 @@ Apply compiler-verified semantic edits.
 
 ```bash
 zero graph patch hello.0 \
-  --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
+  --expect-graph-hash graph:YOUR_HASH \
+  --op 'set node="#610c78bf" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 Operations: `set`, `insert`, `insertEdge`, `replace`, `delete`, `rename`.
@@ -301,7 +301,7 @@ Fetch version-matched language rules and agent guidance.
 ```bash
 zero skills list            # list available skills
 zero skills get language    # language rules for this compiler version
-zero skills get zero --full # complete agent guide
+zero skills get diagnostics # diagnostic reference
 ```
 
 ### JSON Output Schemas
@@ -344,8 +344,8 @@ zero skills list
 # Get language syntax and semantics rules
 zero skills get language
 
-# Get the full agent integration guide
-zero skills get zero --full
+# Get the diagnostic reference
+zero skills get diagnostics
 
 # Get a specific skill with details
 zero skills get diagnostics

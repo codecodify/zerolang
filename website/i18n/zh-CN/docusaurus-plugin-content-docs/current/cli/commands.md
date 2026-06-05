@@ -188,8 +188,8 @@ zero graph test --json .zero/out/hello.program-graph
 
 ```bash
 zero graph patch examples/hello.0 \
-  --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello graph\n"'
+  --expect-graph-hash graph:YOUR_HASH \
+  --op 'set node="#610c78bf" field="value" expect="hello from zero\n" value="hello graph\n"'
 ```
 
 当工具在内存中有完整的补丁文档时，可使用 `--patch-text <text>`。

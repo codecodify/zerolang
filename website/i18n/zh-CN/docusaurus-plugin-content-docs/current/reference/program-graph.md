@@ -19,7 +19,7 @@ zero graph dump --json hello.0
 ```json
 {
   "moduleIdentity": "hello",
-  "graphHash": "graph:a7f7e6899a73f3b4",
+  "graphHash": "graph:YOUR_HASH",
   "counts": { "nodes": 12, "edges": 8 },
   "nodes": [ ... ],
   "edges": [ ... ]
@@ -54,7 +54,7 @@ zero graph dump --json hello.0
 
 | 字段 | 说明 |
 |------|------|
-| `id` | 唯一标识符（如 `#expr_653eeb6e`） |
+| `id` | 唯一标识符（如 `#610c78bf`） |
 | `kind` | 节点类型：`Function`、`Type`、`Binding`、`Literal`、`Call`、`If`、`While`、`Match` 等 |
 | `name` | 声明的名称（如适用） |
 | `type` | 解析后的类型 |
@@ -187,8 +187,8 @@ zero graph build --json --emit obj --target linux-musl-x64 --out hello.o hello.p
 
 ```sh
 zero graph patch hello.0 \
-  --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
+  --expect-graph-hash graph:YOUR_HASH \
+  --op 'set node="#610c78bf" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 ### roundtrip
@@ -202,72 +202,19 @@ zero graph roundtrip .zero/out/hello.program-graph
 
 ## 图补丁操作
 
-`zero graph patch` 支持六种操作：
+`zero graph patch` 支持 `set` 操作来更新标量字段：
 
 ### set
 
 更新现有节点的标量字段：
 
 ```
-set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"
+set node="#610c78bf" field="value" expect="hello from zero\n" value="hello patched\n"
 ```
 
-可编辑字段：`name`、`type`、`value`、`public`、`mutable`、`static`、`fallible`、`exportC`。
+可编辑字段包括：`name`、`type`、`value`、`public`、`mutable`、`static`、`fallible`、`exportC`。
 
-### insert
-
-创建新节点并连接到父节点：
-
-```
-insert node="#patch001" kind="Literal" parent="#expr_c403020c" edge="arg" order="1" type="String" value="again\n"
-```
-
-### insertEdge
-
-跨域连接现有事实：
-
-```
-insertEdge source="#node_abc" target="#type_xyz" kind="type"
-```
-
-### replace
-
-就地更新节点，可选哈希前置条件：
-
-```
-replace node="#expr_653eeb6e" expect="abc123" ...
-```
-
-### delete
-
-移除拥有的子树（拒绝外部引用）：
-
-```
-delete node="#patch001"
-```
-
-### rename
-
-更新节点名称，可选当前名称前置条件：
-
-```
-rename node="#decl_ad8d9028" expect="main" value="start"
-```
-
-## 补丁文件格式
-
-对于较大的编辑，使用补丁文件：
-
-```text
-zero-program-graph-patch v1
-expect graphHash "graph:a7f7e6899a73f3b4"
-set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"
-insert node="#patch001" kind="Literal" parent="#expr_c403020c" edge="arg" order="1" type="String" value="again\n"
-rename node="#decl_ad8d9028" expect="main" value="start"
-delete node="#patch001"
-```
-
-头部是必需的。`expect graphHash` 是可选的但推荐使用。
+`expect` 参数是可选的但推荐使用，如果当前值与预期不符，操作会被拒绝，防止过时编辑。
 
 ## 源代码与图的关系
 

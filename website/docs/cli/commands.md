@@ -187,9 +187,9 @@ zero graph test --json .zero/out/hello.program-graph
 Apply a patch to a ProgramGraph.
 
 ```bash
-zero graph patch examples/hello.0 \
-  --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello graph\n"'
+zero graph patch hello.0 \
+  --expect-graph-hash graph:YOUR_HASH \
+  --op 'set node="#610c78bf" field="value" expect="hello from zero\n" value="hello graph\n"'
 ```
 
 Use `--patch-text <text>` when a tool has a complete patch document in memory.

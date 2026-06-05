@@ -27,5 +27,5 @@ zero check hello.0
 ## 查看图
 
 ```bash
-zero graph --json hello.0
+zero graph dump hello.0
 ```

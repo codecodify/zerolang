@@ -119,8 +119,8 @@ ProgramGraph 包含节点（声明、表达式、类型）、边（调用、导�
 
 ```sh
 zero graph patch hello.0 \
-  --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
+  --expect-graph-hash graph:YOUR_HASH \
+  --op 'set node="#610c78bf" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 图编辑在应用前由编译器检查。Agent 无法在编译器不捕获的情况下引入语法错误或破坏语义约束。

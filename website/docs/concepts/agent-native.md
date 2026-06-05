@@ -48,14 +48,14 @@ zero check --json hello.0
       "path": "hello.0",
       "line": 2,
       "column": 27,
-      "length": 7,
+      "length": 1,
       "expected": "visible local, parameter, function, or builtin",
-      "actual": "no visible symbol named 'message'",
+      "actual": "no matching visible symbol",
       "help": "declare the name before using it",
-      "fixSafety": "behavior-preserving",
+      "fixSafety": "requires-human-review",
       "repair": {
-        "id": "manual-review",
-        "summary": "Inspect the diagnostic fields and choose a repair manually."
+        "id": "declare-missing-symbol",
+        "summary": "Declare the referenced symbol, import the module that provides it, or correct the identifier spelling."
       },
       "related": []
     }
@@ -119,8 +119,8 @@ The ProgramGraph contains nodes (declarations, expressions, types), edges (calls
 
 ```sh
 zero graph patch hello.0 \
-  --expect-graph-hash graph:a7f7e6899a73f3b4 \
-  --op 'set node="#expr_653eeb6e" field="value" expect="hello from zero\n" value="hello patched\n"'
+  --expect-graph-hash graph:YOUR_HASH \
+  --op 'set node="#610c78bf" field="value" expect="hello from zero\n" value="hello patched\n"'
 ```
 
 Graph edits are checked by the compiler before being applied. The agent cannot introduce syntax errors or break semantic constraints without the compiler catching it.
